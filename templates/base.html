@@ -1,0 +1,490 @@
+{% load static %}
+<!DOCTYPE html>
+<!--[if lt IE 8 ]><html class="no-js ie ie7" lang="en"> <![endif]-->
+<!--[if IE 8 ]><html class="no-js ie ie8" lang="en"> <![endif]-->
+<!--[if (gte IE 8)|!(IE)]><!--><html class="no-js" lang="en"> <!--<![endif]-->
+<head>
+
+   <!--- Basic Page Needs
+   ================================================== -->
+   <meta charset="utf-8">
+	<title>Abolfazl's Resume</title>
+	<meta name="description" content="">
+	<meta name="author" content="">
+
+   <!-- Mobile Specific Metas
+   ================================================== -->
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+	<!-- CSS
+    ================================================== -->
+    <link rel="stylesheet" href="{% static 'css/default.css' %}" >
+    <link rel="stylesheet" href="{% static 'css/layout.css' %}" >
+    <link rel="stylesheet" href="{% static 'css/media-queries.css' %}" >
+    <link rel="stylesheet" href="{% static 'css/magnific-popup.css' %}" >
+
+   <!-- Script
+   ================================================== -->
+    <script src="{% static 'js/modernizr.js' %}"></script>
+
+   <!-- Favicons
+	================================================== -->
+    <link rel="shortcut icon" type="image/png" href="{% static 'media/favicon.png' %}" >
+
+</head>
+
+<body>
+
+
+
+
+    <!-- Header
+    ================================================== -->
+        {% include 'inc/header.html' %}
+    <!-- Header End -->
+
+
+
+
+
+   <!-- About Section
+   ================================================== -->
+    {% for foo in Aboutme %}
+
+
+
+   <section id="about">
+
+      <div class="row">
+
+         <div class="three columns">
+
+            <img class="profile-pic" src="{{ foo.image.url }}" alt="" />
+
+         </div>
+
+         <div class="nine columns main-col">
+
+            <h2>{{ foo.Aboutme }}</h2>
+
+            <p>{{ foo.DescriptionAboutme }}
+            </p>
+
+            <div class="row">
+
+               <div class="columns contact-details">
+
+                  <h2>{{ foo.ContactDetails }}</h2>
+                  <p class="address">
+						   <span>{{ foo.Name }}</span>
+                      <br>
+						   <span>{{ foo.Address }}
+                     </span>
+                      <br>
+						   <span>{{ foo.PhoneNumber }}</span>
+                      <br>
+                     <span>{{ foo.Email }}</span>
+					   </p>
+
+               </div>
+
+               <div class="columns download">
+                  <p>
+                     <a href="{{ resume.Resume }}" class="button"><i class="fa fa-download"></i>Download Resume</a>
+                  </p>
+               </div>
+
+            </div>
+             <!-- end row -->
+
+         </div>
+          <!-- end .main-col -->
+
+      </div>
+
+   </section>
+    <!-- About Section End-->
+    {% endfor %}
+
+   <!-- Resume Section
+   ================================================== -->
+   <section id="resume">
+
+      <!-- Education
+      ----------------------------------------------- -->
+
+      <div class="row education">
+
+         <div class="three columns header-col">
+            <h1><span>Education</span></h1>
+         </div>
+
+         <div class="nine columns main-col">
+
+            <div class="row item">
+
+               <div class="twelve columns">
+
+
+
+
+                {% for foo in edu %}
+
+
+
+                  <h3>{{ foo.title  }}</h3>
+                  <p class="info">{{ foo.degree }}<span>&bull;</span> <em class="date">{{ foo.date }}</em></p>
+
+                  <p>
+                  {{ foo.description }}
+                  </p>
+
+                 {% endfor %}
+
+
+
+               </div>
+
+            </div>
+             <!-- item end -->
+
+
+
+         </div>
+          <!-- main-col end -->
+
+      </div>
+       <!-- End Education -->
+
+
+      <!-- Work
+      ----------------------------------------------- -->
+      <div class="row work">
+
+         <div class="three columns header-col">
+            <h1><span>Work</span></h1>
+         </div>
+
+         <div class="nine columns main-col">
+
+            <div class="row item">
+
+               <div class="twelve columns">
+
+
+
+
+                   {% for foo in work %}
+
+
+                  <h3>{{ foo.title }}</h3>
+                  <p class="info">{{ foo.degree }}<span>&bull;</span> <em class="date">{{ foo.date }}</em></p>
+
+                  <p>
+                  {{ foo.description }}
+                  </p>
+
+
+                  {% endfor %}
+
+
+
+
+               </div>
+
+            </div>
+             <!-- item end -->
+
+
+         </div>
+          <!-- main-col end -->
+
+      </div>
+       <!-- End Work -->
+
+
+      <!-- Skills
+      ----------------------------------------------- -->
+      <div class="row skill">
+
+         <div class="three columns header-col">
+            <h1><span>Skills</span></h1>
+         </div>
+
+         <div class="nine columns main-col">
+
+            <p>{{ des.description }}
+            </p>
+
+				<div class="bars">
+
+                <ul class="skills">
+                        <li>
+                           <span class="bar-expand photoshop"></span><em>Photoshop</em>
+                        </li>
+                      <li>
+                          <span class="bar-expand illustrator"></span><em>Illustrator</em>
+                      </li>
+						<li>
+                            <span class="bar-expand wordpress"></span><em>Wordpress</em>
+                        </li>
+						<li>
+                            <span class="bar-expand css"></span><em>CSS</em>
+                        </li>
+						<li>
+                            <span class="bar-expand html5"></span><em>HTML5</em>
+                        </li>
+                  <li>
+                      <span class="bar-expand jquery"></span><em>Python</em>
+                  </li>
+
+                </ul>
+
+				</div>
+             <!-- end skill-bars -->
+
+			</div>
+          <!-- main-col end -->
+
+      </div>
+       <!-- End skills -->
+
+   </section>
+    <!-- Resume Section End-->
+
+
+   <!-- Call-To-Action Section
+   ================================================== -->
+   <section id="call-to-action">
+
+      <div class="row">
+
+         <div class="two columns header-col">
+
+            <h1><span>Get Hosting.</span></h1>
+
+         </div>
+
+         <div class="seven columns">
+
+            <h2><span class="lead">{{ koreh.title }}</span></h2>
+            <p><span class="lead">{{ koreh.description }}</span></p>
+
+         </div>
+
+         <div class="three columns action">
+
+
+
+         </div>
+
+      </div>
+
+   </section>
+    <!-- Call-To-Action Section End-->
+
+
+   <!-- Testimonials Section
+   ================================================== -->
+   <section id="testimonials">
+
+      <div class="text-container">
+
+         <div class="row">
+
+            <div class="two columns header-col">
+
+               <h1><span>Client Testimonials</span></h1>
+
+            </div>
+
+
+            <div class="ten columns flex-container">
+
+
+
+
+
+               <div class="flexslider">
+
+
+                  <ul class="slides">
+
+
+            {% for rn in rn %}
+
+
+                     <li>
+                        <blockquote>
+                           <p>{{ rn.description }}
+                           </p>
+                           <cite>{{ rn.auther }}</cite>
+                        </blockquote>
+                     </li>
+                      <!-- slide ends -->
+
+            {% endfor %}
+
+                      <!-- slide ends -->
+
+                  </ul>
+
+
+               </div>
+                <!-- div.flexslider ends -->
+
+
+            </div>
+             <!-- div.flex-container ends -->
+
+         </div>
+          <!-- row ends -->
+
+       </div>
+       <!-- text-container ends -->
+
+   </section>
+    <!-- Testimonials Section End-->
+
+
+   <!-- Contact Section
+   ================================================== -->
+   <section id="contact">
+
+
+         <div class="row section-head">
+
+            <div class="two columns header-col">
+
+               <h1><span>Get In Touch.</span></h1>
+
+            </div>
+
+            <div class="ten columns">
+
+                  <p class="lead">
+                      {{ inf.description }}
+                  </p>
+
+
+
+            </div>
+
+
+
+
+         </div>
+
+         <div class="row">
+
+            <div class="eight columns">
+
+               <!-- form -->
+               <form action="" method="post" name="contactForm">
+                    {{ contactform }}
+                    {% csrf_token %}
+                    <div>
+                        <button class="submit">Submit</button>
+                         <span id="image-loader">
+                            <img alt="" src="{% static '../media/loader.gif' %}">
+                         </span>
+                    </div>
+                </form>
+                <!-- Form End -->
+
+                <!-- contact-warning -->
+                <div id="message-warning"> Error boy</div>
+                <!-- contact-success -->
+				   <div id="message-success">
+                  <i class="fa fa-check"></i>Your message was sent, thank you!<br>
+				   </div>
+
+                </div>
+
+
+            <section class="four columns footer-widgets">
+
+               <div class="widget widget_contact">
+                   {% for foo in Aboutme %}
+
+
+
+					   <h4>Address and Phone</h4>
+					   <p class="address">
+						   {{ foo.Name }}<br>
+						   {{ foo.Address }} <br>
+						   <span>{{ foo.PhoneNumber }}</span>
+					   </p>
+                   {% endfor %}
+				   </div>
+
+               <div class="widget widget_tweets">
+
+                  <h4 class="widget-title">Latest Tweets</h4>
+
+                  <ul id="twitter">
+                     <li>
+
+
+
+                    {% for foo in descript %}
+
+                        <span>
+                        {{ foo.description }}
+                        </span>
+                        <div class="opacity-75">{{ foo.date|timesince}} ago</div>
+
+                    {% endfor %}
+
+
+                    <br>
+                     <br>
+                     <br>
+
+
+                    <div>
+                        <!-- Messages
+                        ================================================== -->
+                            {% include 'inc/messages.html' %}
+                        <!-- Messages End -->
+                    </div>
+
+
+                     </li>
+                  </ul>
+
+                </div>
+
+            </section>
+
+      </div>
+
+   </section>
+    <!-- Contact Section End-->
+
+
+
+
+    <!-- footer
+    ================================================== -->
+        {% include 'inc/footer.html' %}
+    <!-- Footer End-->
+
+
+
+
+   <!-- Java Script
+   ================================================== -->
+   <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+   <script>window.jQuery || document.write('<script src="{% static 'js/jquery-1.10.2.min.js' %}"><\/script>')</script>
+   <script type="text/javascript" src="{% static 'js/jquery-migrate-1.2.1.min.js' %}"></script>
+
+   <script src="{% static 'js/jquery.flexslider.js' %}"></script>
+   <script src="{% static 'js/waypoints.js' %}"></script>
+   <script src="{% static 'js/waypoints.js' %}"></script>
+   <script src="{% static 'js/magnific-popup.js' %}"></script>
+   <script src="{% static 'js/init.js' %}"></script>
+
+</body>
+
+</html>
